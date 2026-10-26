@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Hama Roblox Universe V9</title>
+  <title>Hama Roblox Universe V10 - Fixed</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
@@ -39,14 +39,12 @@
     .input-group label { display: block; font-size: 13px; color: var(--text-muted); margin-bottom: 6px; }
     .input-group input {
       width: 100%; padding: 12px 14px; background: #141517; border: 1px solid var(--border);
-      border-radius: 8px; color: #fff; font-size: 15px; outline: none; transition: 0.2s;
+      border-radius: 8px; color: #fff; font-size: 15px; outline: none;
     }
-    .input-group input:focus { border-color: var(--primary); }
     .auth-btn {
       width: 100%; padding: 12px; background: var(--primary); border: none; border-radius: 8px;
-      color: white; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.2s; margin-top: 10px;
+      color: white; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 10px;
     }
-    .auth-btn:hover { background: var(--primary-dark); }
     .error-msg { color: #ff4757; font-size: 13px; margin-top: 10px; display: none; }
 
     #global-announcement-banner {
@@ -85,7 +83,7 @@
     .logout-btn { background: #333; color: white; border: none; padding: 6px 10px; border-radius: 8px; font-size: 12px; font-weight: bold; cursor: pointer; }
     .avatar-btn {
       width: 36px; height: 36px; border-radius: 50%; background: var(--primary);
-      display: flex; align-items: center; justify-content: center; font-weight: bold; cursor: pointer; position: relative;
+      display: flex; align-items: center; justify-content: center; font-weight: bold; cursor: pointer;
     }
     .verified-icon { color: var(--verified-blue); margin-right: 4px; font-size: 14px; }
 
@@ -108,15 +106,14 @@
     .games-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
     .game-card {
       background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px;
-      overflow: hidden; cursor: pointer; transition: 0.3s transform, 0.3s box-shadow;
+      overflow: hidden; cursor: pointer; transition: 0.3s transform;
     }
-    .game-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); border-color: var(--primary); }
+    .game-card:hover { transform: translateY(-5px); border-color: var(--primary); }
     .game-thumb { height: 130px; background-size: cover; background-position: center; position: relative; }
     .game-thumb .playing-count {
       position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.75);
       padding: 4px 8px; border-radius: 12px; font-size: 11px; display: flex; align-items: center; gap: 4px;
     }
-    .game-thumb .playing-count i { color: #00e676; font-size: 8px; }
     .game-info { padding: 14px; }
     .game-title { font-size: 16px; font-weight: bold; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .game-creator { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
@@ -184,17 +181,17 @@
 
     .game-chat {
       position: absolute; top: 70px; right: 20px; width: 280px; height: 200px;
-      background: rgba(0,0,0,0.65); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
-      pointer-events: auto; display: flex; flex-direction: column; overflow: hidden;
+      background: rgba(0,0,0,0.75); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px;
+      pointer-events: auto; display: flex; flex-direction: column; overflow: hidden; z-index: 10002;
     }
     .chat-messages { flex: 1; padding: 8px; overflow-y: auto; font-size: 12px; display: flex; flex-direction: column; gap: 4px; }
-    .chat-msg { background: rgba(255,255,255,0.05); padding: 4px 8px; border-radius: 4px; word-break: break-word; }
+    .chat-msg { background: rgba(255,255,255,0.08); padding: 5px 8px; border-radius: 4px; word-break: break-word; color: #fff; }
     .chat-msg .sender { font-weight: bold; color: var(--primary); }
     .chat-msg .owner { color: #ff4757; }
     .chat-msg .system { color: #00e676; font-weight: bold; }
-    .chat-input-box { display: flex; border-top: 1px solid rgba(255,255,255,0.1); }
-    .chat-input-box input { flex: 1; background: transparent; border: none; padding: 6px 10px; color: white; outline: none; font-size: 12px; }
-    .chat-input-box button { background: var(--primary); border: none; color: white; padding: 0 12px; cursor: pointer; }
+    .chat-input-box { display: flex; border-top: 1px solid rgba(255,255,255,0.2); background: #111; }
+    .chat-input-box input { flex: 1; background: transparent; border: none; padding: 8px 10px; color: white; outline: none; font-size: 13px; }
+    .chat-input-box button { background: var(--primary); border: none; color: white; padding: 0 14px; cursor: pointer; font-weight: bold; }
 
     .mobile-controls {
       position: absolute; bottom: 25px; left: 25px; right: 25px;
@@ -225,13 +222,11 @@
 </head>
 <body>
 
-  <!-- Global Announcement Banner -->
   <div id="global-announcement-banner">
     <i class="fa-solid fa-bullhorn" style="font-size: 20px; color:#ffeaa7;"></i>
     <span id="announcement-text">پەیامی فەرمی خاوەنی یارییەکە</span>
   </div>
 
-  <!-- Auth Screen -->
   <div id="auth-screen">
     <div class="auth-card">
       <h1><i class="fa-solid fa-cube"></i> Hama Roblox</h1>
@@ -252,7 +247,6 @@
     </div>
   </div>
 
-  <!-- Dashboard -->
   <div id="dashboard">
     <header>
       <div class="brand">
@@ -324,7 +318,6 @@
     </div>
   </div>
 
-  <!-- Admin Panel Modal -->
   <div id="admin-modal">
     <div class="admin-card">
       <h2><i class="fa-solid fa-shield-halved"></i> بەڕێوەبەری سەرەکی (Admin Panel)</h2>
@@ -356,7 +349,6 @@
     </div>
   </div>
 
-  <!-- 3D Game Canvas Overlay -->
   <div id="game-container">
     <canvas id="game-canvas"></canvas>
     <div class="game-ui-overlay">
@@ -373,7 +365,7 @@
           <div class="chat-msg"><span class="sender owner">rip_hama276 <i class="fa-solid fa-circle-check verified-icon"></i> (Owner):</span> بەخێربێن بۆ Steal An Egg[span_1](start_span)[span_1](end_span)!</div>
         </div>
         <div class="chat-input-box">
-          <input type="text" id="chat-input" placeholder="!donate username amount" onkeypress="if(event.key==='Enter') sendChatMessage()">
+          <input type="text" id="chat-input" placeholder="!donate username amount..." onkeydown="if(event.key==='Enter') sendChatMessage()">
           <button onclick="sendChatMessage()">ناردن</button>
         </div>
       </div>
@@ -643,7 +635,7 @@
       scene.background = new THREE.Color(0x1a1c29);
 
       camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-      renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+      renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, powerPreference: "high-performance" });
       renderer.setSize(window.innerWidth, window.innerHeight);
 
       const light = new THREE.DirectionalLight(0xffffff, 1);
